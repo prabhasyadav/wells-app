@@ -3,6 +3,12 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import pandas as pd
 import scipy.special as ssp
+import plotly.express as px
+
+
+"## The Problem ##"
+st.markdown("A community is installing a new well in a regionally confined aquifer with a transmissivity of 248.5 m$^2$/day and the storativity of 0.0002. the planned pumping rate is 4088.24 m$^3$/day. There are several nearby wells tapping the same aquifer, and the hydrogeologist in charge needs to know if the new well will cause significant interference with these wells. compute the theoretical drawdown caused by the new well after 30 days of continuous pumping at the distnces of 50, 250, and 1000 meters. _Source: C.W. Fetter, Applied Hydrogeology_")
+
 
 def user_input():
 
@@ -10,7 +16,7 @@ def user_input():
     Ty = st.sidebar.number_input("Transmissivity (m\u00b2/d):", value =250.0)
     S = st.sidebar.number_input("Storativity:",value=0.0002 )
     Q = st.sidebar.number_input("Pumping rate (m\u00b3/d)" , value=4088.24)
-    t = st.sidebar.slider("Time (days)", value=30 )
+    t = st.sidebar.slider("Time (d)", value=30 )
 
 
     st.sidebar.text("The Well locations:")
@@ -31,6 +37,8 @@ def user_input():
     return  Input 
 
 df = user_input()
+
+"### Input data ###" 
 
 if st.checkbox("Show input data"):
     
