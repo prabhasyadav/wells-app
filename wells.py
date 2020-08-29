@@ -39,8 +39,6 @@ df = user_input()
 "### Input data ###" 
 
 if st.checkbox("Show input data"):
-    
-    st.header("User data input for the the problem")
     st.write(df.T)
 
 def calc_wells(Ty,S,Q,t, r1, r2, r3):
