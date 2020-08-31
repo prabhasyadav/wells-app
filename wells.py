@@ -3,8 +3,13 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import pandas as pd
 import scipy.special as ssp
+pd.options.display.float_format = '{:.5f}'.format
 
-"## The Problem ##"
+st.beta_set_page_config(page_icon="potable_water")
+st.set_option('deprecation.showfileUploaderEncoding', False)
+
+
+"## **The Problem** ##"
 st.markdown("A community is installing a new well in a regionally confined aquifer with a transmissivity of 248.5 m$^2$/day and the storativity of 0.0002. the planned pumping rate is 4088.24 m$^3$/day. There are several nearby wells tapping the same aquifer, and the hydrogeologist in charge needs to know if the new well will cause significant interference with these wells. compute the theoretical drawdown caused by the new well after 30 days of continuous pumping at the distnces of 50, 250, and 1000 meters. _Source: C.W. Fetter, Applied Hydrogeology_")
 
 
@@ -12,7 +17,7 @@ def user_input():
 
     st.sidebar.header("The input data")
     Ty = st.sidebar.number_input("Transmissivity (m\u00b2/d):", value =250.0)
-    S = st.sidebar.number_input("Storativity:",value=0.0002 )
+    S = st.sidebar.number_input("Storativity:",value=2e-6, format='%e' )
     Q = st.sidebar.number_input("Pumping rate (m\u00b3/d)" , value=4088.24)
     t = st.sidebar.slider("Time (d)", value=30 )
 
@@ -39,6 +44,7 @@ df = user_input()
 "### Input data ###" 
 
 if st.checkbox("Show input data"):
+    st.table(df.T,)
     st.write(df.T)
 
 def calc_wells(Ty,S,Q,t, r1, r2, r3):
@@ -79,4 +85,15 @@ df_1 = calc_wells(df["Transmissivity"], df["Storativity"], df["Pumping rate"], d
 
 st.write(df_1.T)
 
+st.text("") # adding space
+    # About
+#if st.button("About App"):
+ 
+
+About = st.sidebar.checkbox("About App")
+if About:
+    st.sidebar.text("Problem by Ms. Haniedh Mehrdad")
+    st.sidebar.text("App created using Streamlit")
+else:
+    st.sidebar.text(" ")
 
