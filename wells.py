@@ -45,7 +45,7 @@ df = user_input()
 
 if st.checkbox("Show input data"):
     st.table(df.T,)
-    st.write(df.T)
+    #st.write(df.T)
 
 def calc_wells(Ty,S,Q,t, r1, r2, r3):
     
