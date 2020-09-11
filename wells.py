@@ -79,7 +79,7 @@ def calc_wells(Ty,S,Q,t, r1, r2, r3):
 
     return result
 
-st.subheader("The results")
+st.subheader("Intresting results")
 
 df_1 = calc_wells(df["Transmissivity"], df["Storativity"], df["Pumping rate"], df["Time"], df["Location for Well 1"], df["Location for Well 2"], df["Location for Well 3"])
 
