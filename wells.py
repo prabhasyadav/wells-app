@@ -92,7 +92,7 @@ st.text("") # adding space
 
 About = st.sidebar.checkbox("About App")
 if About:
-    st.sidebar.text("Problem by Ms. Haniedh Mehrdad")
+    st.sidebar.text("Problem by Ms. Haniedh Mehrdad and Prabhas")
     st.sidebar.text("App created using Streamlit")
 else:
     st.sidebar.text(" ")
